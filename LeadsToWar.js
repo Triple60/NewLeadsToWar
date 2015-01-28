@@ -16,7 +16,6 @@ function Infantry() {
 
 Infantry.prototype = Object.create(Unit.prototype);
 Infantry.prototype.constructor = Infantry;
-=======
 function Unit(cost, level, attack, defense, speed, range, accuracy) {
         this.cost = cost;
         this.level = level;
@@ -37,13 +36,6 @@ function Rifleman(name) {
     
 }
 Rifleman.prototype = Object.create(Unit.prototype);
-
-
-
-
-
-
->>>>>>> origin/master
 
 var John = new Infantry();
 

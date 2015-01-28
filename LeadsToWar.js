@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //This code was worked on primarily by Ayush Sharma.
 
 var cash = 1000;

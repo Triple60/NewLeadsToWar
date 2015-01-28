@@ -1,19 +1,23 @@
-var cash = 1000;
-
-function Unit(price, health, power) {
-    this.price = price;
-    //cash -= this.price;
-    this.fullHealth = health;
-    this.health = health;
-    this.power = power;
-};
-
-function Tank() {
-    Unit.call(this, 100, 50, 50);    
+function Unit(cost, level, attack, defense, speed, range, accuracy) {
+        this.cost = cost;
+        this.level = level;
+        this.attack = attack;
+        this.defense = defense;
+        this.speed = speed;
+        this.range = range;
+        this.accuracy = accuracy;
+        Unit.instances = 0;
 }
-
-Tank.prototype = Object.create(Unit.prototype);
-Tank.prototype.constructor = Tank;
+function Rifleman(name) {
+    this.name = name;
+    Unit.call(this, 25, 1, 10, 10, 10, 10, 10);
+    this.levelUp = function() {
+        var toLevel = checkCash(Rifleman.cost);
+        this.level ++;
+    };
+    
+}
+Rifleman.prototype = Object.create(Unit.prototype);
 
 
 

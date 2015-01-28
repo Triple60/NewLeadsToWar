@@ -1,3 +1,5 @@
+//This code was worked on primarily by Ayush Sharma.
+
 var cash = 1000;
 
 function Unit(price, health, power) {
@@ -8,19 +10,14 @@ function Unit(price, health, power) {
     this.power = power;
 };
 
-function Tank() {
-    Unit.call(this, 100, 50, 50);    
+function Infantry() {
+    Unit.call(this, 100, 50, 100);    
 }
 
-Tank.prototype = Object.create(Unit.prototype);
-Tank.prototype.constructor = Tank;
+Infantry.prototype = Object.create(Unit.prototype);
+Infantry.prototype.constructor = Infantry;
 
-
-
-
-
-
-
+var John = new Infantry();
 
 /*var Unit = function(price, health, power) {
     this.price = price;

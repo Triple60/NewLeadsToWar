@@ -1,14 +1,61 @@
-<html>
+<html> <!-- This code was worked on primarily by Ethan Netz -->
 
-<head>
+<head> 
     <script src="LeadsToWar.js"></script>
     <script src="LeadsToWarFunctions.js"></script>
 </head>
 
-<body>
+<body> 
 <script>
-    
+  
+var duckImage = "http://www.whateats.com/wp-content/uploads/2010/04/duck-jaroslav-novak.jpt_.jpg"
+var slotArray = [ , , , , , , , , , ]
+
+
+for(var i=0; i<10; i++){
+	var divTest = document.createElement('div' + i);
+	divTest.id = ('testDivId' + i)
+	document.body.appendChild(divTest);
+	if (i === 0 || i === 9){
+		document.getElementById('testDivId' + i).innerHTML = '<img src="http://upload.wikimedia.org/wikipedia/commons/4/48/Penrhyn_Castle.jpg" width=10%></button>';
+		slotArray[i] = 1
+	} else {
+		document.getElementById('testDivId' + i).innerHTML = '<img src="" width=10%></button>';
+	} 
+}
+
+
+function addImage(image) {
+		if(slotArray[1]===1) {
+			for(var j=7; j>0; j=j-1) {
+				if(slotArray[j]===1) {
+					document.getElementById("testDivId" + (j+1)).innerHTML = document.getElementById("testDivId" + j).innerHTML
+					slotArray[j+1] = 1
+				}
+			}
+		} 
+		
+		if (image === "duck"){
+			document.getElementById("testDivId" + 1).innerHTML = '<img src="http://www.whateats.com/wp-content/uploads/2010/04/duck-jaroslav-novak.jpt_.jpg" width=10%></button>';
+		} else if (image === 'cheese') {
+			document.getElementById("testDivId" + 1).innerHTML = '<img src="http://upload.wikimedia.org/wikipedia/commons/e/ec/NCI_swiss_cheese.jpg" width=10%></button>';
+		}
+			slotArray[1] = 1
+	}
+
+
+
+
 </script>
+
+	<button onClick = "addImage('duck')">Add Duck</button>
+	<button onClick = "addImage('cheese')"> Add Cheese</button>
+
+
+
+
+
+
 </body>
 
 

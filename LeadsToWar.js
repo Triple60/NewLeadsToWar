@@ -31,8 +31,21 @@ function Rifleman(name) {
     Unit.call(this, 25, 1, 10, 10, 10, 10, 10);
     this.levelUp = function() {
         var toLevel = checkCash(Rifleman.cost);
-        this.level ++;
+        this.level++;
     };
+    this.attackUnit = function() {
+        var i = true;
+        while (i == true) {
+            var toAttack = Math.floor(Math.random() * Units.length);
+            if (Units[toAttack].name !== this.name) {
+                i = false;
+            }
+        }
+        Units[toAttack].defense -= this.attack;
+        if (Units[toAttack].defense == 0) {
+            Units.splice(toAttack, 1);
+        }
+    }
     
 }
 Rifleman.prototype = Object.create(Unit.prototype);

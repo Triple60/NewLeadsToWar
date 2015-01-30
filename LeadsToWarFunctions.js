@@ -1,6 +1,6 @@
 //New LTW//
 //This code was written by Elusch21//
-var Riflemen = [];
+var Units = [];
 cash = 1000;
 function checkCash(cost) {
 	if (cost > cash) {
@@ -17,7 +17,7 @@ function getNewRifleman() {
 	}
 	else {
 		var name = prompt("What is his name?");
-		Riflemen.push(new Rifleman(name));
+		Units.push(new Rifleman(name));
 		cash = cash - 100;
 	}
 };

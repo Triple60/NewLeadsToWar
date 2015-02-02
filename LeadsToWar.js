@@ -1,22 +1,8 @@
 //This code was worked on primarily by Ayush Sharma.
 
-var cash = 1000;
+var cash = 10;
 
-function Unit(price, health, power) {
-    this.price = price;
-    //cash -= this.price;
-    this.fullHealth = health;
-    this.health = health;
-    this.power = power;
-};
-
-function Infantry() {
-    Unit.call(this, 100, 50, 100);    
-}
-
-Infantry.prototype = Object.create(Unit.prototype);
-Infantry.prototype.constructor = Infantry;
-function Unit(cost, level, attack, defense, speed, range, accuracy) {
+var Unit = function(cost, level, attack, defense, speed, range, accuracy) {
         this.cost = cost;
         this.level = level;
         this.attack = attack;
@@ -26,31 +12,64 @@ function Unit(cost, level, attack, defense, speed, range, accuracy) {
         this.accuracy = accuracy;
         Unit.instances = 0;
 }
+
 function Rifleman(name) {
     this.name = name;
-    Unit.call(this, 25, 1, 10, 10, 10, 10, 10);
-    this.levelUp = function() {
+    this.riflemanNumber = "Rifleman" + riflemanArray.length
+    Unit.call(this, 25, 1, 10, 10, 10, 10, 10);    
+}
+
+function Tank(name) {
+    this.name = name;
+    this.tankNumber = "Tank" + tankArray.length
+    Unit.call(this, 100, 1, 25, 50, 5, 10, 5);
+}
+
+var unitArray = [];
+var player1UnitArray = [];
+var player2UnitArray = [];
+var riflemanArray = []
+var tankArray = [];
+
+
+
+Rifleman.prototype = Object.create(Unit.prototype);
+Rifleman.prototype.constructor = Rifleman;
+Tank.prototype = Object.create(Unit.prototype);
+Tank.prototype.constructor = Tank;
+
+
+
+
+
+
+
+    /*this.levelUp = function() {
         var toLevel = checkCash(Rifleman.cost);
         this.level++;
     };
-    this.attackUnit = function() {
-        var i = true;
-        while (i == true) {
-            var toAttack = Math.floor(Math.random() * Units.length);
-            if (Units[toAttack].name !== this.name) {
-                i = false;
-            }
-        }
-        Units[toAttack].defense -= this.attack;
-        if (Units[toAttack].defense == 0) {
-            Units.splice(toAttack, 1);
-        }
-    }
     
-}
-Rifleman.prototype = Object.create(Unit.prototype);
 
-var John = new Infantry();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*var Unit = function(price, health, power) {
     this.price = price;

@@ -68,7 +68,7 @@ var createTank = function(turn) {
             
             else if (turn===-1) {
                 turn = turn * -1;
-                player1UnitArray[0].defense =  player1UnitArray[0].defense - player2UnitArray[0].attack;
+                player1UnitArray[0].defense = player1UnitArray[0].defense - player2UnitArray[0].attack;
             }
             
             

@@ -1,25 +1,21 @@
 //This code was written by Elusch21//
 
 function checkCash(cost) {
-	if (cost > cash) {
-        return false; //FIX CASH PROBLEM. ADD TWO CASH SYSTEMS
-    }
-	else {
-        return true;
-    }
+	if (cost > cash) return false; //FIX CASH PROBLEM. ADD TWO CASH SYSTEMS
+	else return true;
 } 
 
 var createRifleman = function(turn) {
     if(checkCash(Rifleman.cost)) {
-		cash -= Rifleman.cost;
+		cash = cash - Rifleman.cost;
     	var name = prompt("Whats the name?")
     	var unitArraySize = unitArray.length;
     	var riflemanArraySize = riflemanArray.length;
     	window["Rifleman" + unitArraySize] = new Rifleman(name);
     	unitArray.push(window["Rifleman" + unitArraySize])
     	riflemanArray.push(window["Rifleman" + riflemanArraySize])
-    	if (turn === 1) player1UnitArray.push(window["Rifleman" + unitArraySize]);
-    	else if (turn === -1) player2UnitArray.push(window["Rifleman" + unitArraySize]);
+    	if (turn===1) player1UnitArray.push(window["Rifleman" + unitArraySize]);
+    	else if (turn===-1) player2UnitArray.push(window["Rifleman" + unitArraySize]);
     	addImage(Rifleman);
     } else {
     	alert("Not Enough Money!")
@@ -35,8 +31,8 @@ var createTank = function(turn) {
     	window["Tank" + unitArraySize] = new Tank(name);
     	unitArray.push(window["Tank" + unitArraySize])
     	tankArray.push(window["Tank" + tankArraySize])
-    	if (turn === 1) player1UnitArray.push(window["Tank" + unitArraySize]);
-    	else if (turn === -1) player2UnitArray.push(window["Tank" + unitArraySize]);
+    	if (turn===1) player1UnitArray.push(window["Tank" + unitArraySize]);
+    	else if (turn===-1) player2UnitArray.push(window["Tank" + unitArraySize]);
     	addImage(Tank);
     } else {
     	alert("Not Enough Money!")
@@ -112,3 +108,4 @@ var createTank = function(turn) {
             removeImage(toAttack)
         }
     }*/
+

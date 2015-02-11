@@ -1,4 +1,4 @@
-//This code was written by Elusch21//
+//This code was written by Elusch21 and Ethernetz//
 
 function checkCash(cost) {
 	if (cost > cash) return false; //FIX CASH PROBLEM. ADD TWO CASH SYSTEMS
@@ -6,7 +6,7 @@ function checkCash(cost) {
 } 
 
 var createRifleman = function(turn) {
-    if(checkCash(Rifleman.cost)) {
+    if(checkCash(Rifleman.cost) = true) {
 		cash = cash - Rifleman.cost;
     	var name = prompt("Whats the name?")
     	var unitArraySize = unitArray.length;
@@ -14,16 +14,21 @@ var createRifleman = function(turn) {
     	window["Rifleman" + unitArraySize] = new Rifleman(name);
     	unitArray.push(window["Rifleman" + unitArraySize]);
     	riflemanArray.push(window["Rifleman" + riflemanArraySize]);
-    	if (turn===1) player1UnitArray.push(window["Rifleman" + unitArraySize]);
-    	else if (turn===-1) player2UnitArray.push(window["Rifleman" + unitArraySize]);
-    	addImage(Rifleman);
-    } else {
+    	if (turn === 1) {
+           player1UnitArray.push(window["Rifleman" + unitArraySize]);
+        }
+    	else if (turn === -1) {
+           player2UnitArray.push(window["Rifleman" + unitArraySize]);
+    	   addImage(Rifleman);
+        }
+    } 
+    else {
     	alert("Not Enough Money!")
     }
 }
 
 var createTank = function(turn) {
-	if(checkCash(Tank.cost)) {
+	if(checkCash(Tank.cost) = true) {
 		cash = cash - Tank.cost;
     	var name = prompt("Whats the name?")
     	var unitArraySize = unitArray.length;
@@ -31,26 +36,35 @@ var createTank = function(turn) {
     	window["Tank" + unitArraySize] = new Tank(name);
     	unitArray.push(window["Tank" + unitArraySize]);
     	tankArray.push(window["Tank" + tankArraySize]);
-    	if (turn===1) player1UnitArray.push(window["Tank" + unitArraySize]);
-    	else if (turn===-1) player2UnitArray.push(window["Tank" + unitArraySize]);
-    	addImage(Tank);
-    } else {
+    	if (turn === 1) {
+           player1UnitArray.push(window["Tank" + unitArraySize]);
+        }
+    	else if (turn === -1) {
+           player2UnitArray.push(window["Tank" + unitArraySize]);
+    	   addImage(Tank);
+        }
+    }
+    else {
     	alert("Not Enough Money!")
     }
 }
 
 
 	Unit.prototype.levelUp = function() {
-		if(checkCash(this.cost)) this.level ++;
+		if(checkCash(this.cost) = true) {
+            this.level ++;
+        }
 		else alert("Not Enough Money");
 	};
 
-<<<<<<< HEAD
 	var attackUnit = function(unitId) {
 		var unitId = unitId.substr(7, 7);
-		if (turn===1) player2UnitArray[0].defense = player2UnitArray[0].defense - player1UnitArray[unitId-1].attack;
-		else if (turn===-1) player1UnitArray[0].defense =  player1UnitArray[0].defense - player2UnitArray[(switchFromP2(parseInt(unitId)) - 1) ].attack; 
-		
+		if (turn === 1) {
+           player2UnitArray[0].defense = player2UnitArray[0].defense - player1UnitArray[unitId-1].attack;
+        }
+		else if (turn === -1) {
+           player1UnitArray[0].defense =  player1UnitArray[0].defense - player2UnitArray[(switchFromP2(parseInt(unitId)) - 1) ].attack; 
+		}
 		if (player2UnitArray[0].defense <= 0) {
         	console.log(player2UnitArray[0].name + " is dead!");
             removeImage(player2UnitArray[0].riflemanNumber);

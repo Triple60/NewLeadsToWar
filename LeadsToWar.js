@@ -28,7 +28,7 @@ function Tank(name) {
 var unitArray = [];
 var player1UnitArray = [];
 var player2UnitArray = [];
-var riflemanArray = []
+var riflemanArray = [];
 var tankArray = [];
 
 

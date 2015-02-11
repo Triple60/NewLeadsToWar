@@ -45,6 +45,7 @@ var createTank = function(turn) {
 		else alert("Not Enough Money");
 	};
 
+<<<<<<< HEAD
 	var attackUnit = function(unitId) {
 		var unitId = unitId.substr(7, 7);
 		if (turn===1) player2UnitArray[0].defense = player2UnitArray[0].defense - player1UnitArray[unitId-1].attack;
@@ -85,7 +86,57 @@ var createTank = function(turn) {
         else if (unitId===4) return 5;  
     }
 
+=======
+	var attackUnit = function(/*unitId*/) {
+		//console.log(unitId);
+        turn = turn * -1;
+        
+        if (player1UnitArray.length === 0) {
+            turn = turn * -1;
+            console.log("You can't attack Player 2!");
+        }
+        
+        else if (player2UnitArray.length === 0) {
+            turn = turn * -1;
+            console.log("You can't attack Player 1!");
+        }
+        
+        else {
+            
+            if (turn===1) {
+                turn = turn * -1;
+                player2UnitArray[0].defense = player2UnitArray[0].defense - player1UnitArray[0].attack;
+            }
+            
+            else if (turn===-1) {
+                turn = turn * -1;
+                player1UnitArray[0].defense = player1UnitArray[0].defense - player2UnitArray[0].attack;
+            }
+            
+            
+            
+            if (player2UnitArray[0].defense === 0) {
+                removeImage(1);
+                turn = turn * -1;
+                console.log(player2UnitArray[0].name + " is dead!");
+            }
 
+            else if (player1UnitArray[0].defense === 0) {
+                removeImage(1);
+                turn = turn * -1;
+                console.log(player1UnitArray[0].name + " is dead!");
+            }
+        }
+        
+        turn = turn * -1;
+        
+	}
+>>>>>>> origin/master
+
+/*function nUnits(team) {
+    return team.length;
+}*/
+    
 	/*this.attackUnit = function() {
         var i = true;
         while (i == true) {

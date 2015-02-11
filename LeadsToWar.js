@@ -16,6 +16,12 @@ var Unit = function(cost, level, attack, defense, speed, range, accuracy) {
 function Rifleman(name) {
     this.name = name;
     this.riflemanNumber = "Rifleman" + riflemanArray.length
+    if (turn === 1) {
+        this.team = "Player 1";
+    }
+    else if (turn === -1) {
+        this.team = "Player 2";
+    }
     Unit.call(this, 25, 1, 10, 10, 10, 10, 10);    
 }
 

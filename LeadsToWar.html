@@ -4,6 +4,10 @@
     <script src="LeadsToWar.js"></script>
     <script src="LeadsToWarFunctions.js"></script>
     <link rel="stylesheet" type="text/css" href="LeadsToWar.css">
+<<<<<<< HEAD
+=======
+    <!--<script src="Easel.js/EaselJS-0.8.0/lib/easeljs-0.8.0.combined.js"></script>-->
+>>>>>>> origin/master
 </head>
 
 <body> 
@@ -47,6 +51,7 @@ function addImage(unitType) {
 	} else {
 		var firstSlot = 8;
 		if(slotArray[8]===1) {
+<<<<<<< HEAD
 			for(var j=5; j<9; j=j+1) {
 				if(slotArray[j]===1) {
 					document.getElementById("imageId" + j).id = "imageId" + (j-1);
@@ -62,10 +67,24 @@ function addImage(unitType) {
 			document.getElementById("divSlotId" + firstSlot).innerHTML = '<img src="http://ts1.mm.bing.net/th?&id=HN.607992598754233865&w=300&h=300&c=0&pid=1.9&rs=0&p=0" width=9% class="player2" id="imageId8" onClick="attackUnit(this.id)"></img>';
 		}
 	}		
+=======
+			for(var j = 5; j < 9; j++) {
+				if(slotArray[j] === 1) {
+					document.getElementById("testDivId" + (j-1)).innerHTML = document.getElementById("testDivId" + j).innerHTML;
+					slotArray[j-1] = 1;
+				}
+			}
+		} 
+		if(unitType === Rifleman) document.getElementById("testDivId" + firstSlot).innerHTML = '<img src="http://ts1.mm.bing.net/th?&id=HN.608051993852839776&w=300&h=300&c=0&pid=1.9&rs=0&p=0" width=10% class="player2" onClick="attackUnit(this.previousSibling.id)"></img>';
+		else if (unitType === Tank) document.getElementById("testDivId" + firstSlot).innerHTML = '<img src="http://ts1.mm.bing.net/th?&id=HN.607992598754233865&w=300&h=300&c=0&pid=1.9&rs=0&p=0" width=10% class="player2" onClick="attackUnit(this.previousSibling.id)"></img>';
+	}
+    
+>>>>>>> origin/master
 		slotArray[firstSlot] = 1;
 		turn = turn * -1;
 }
 
+<<<<<<< HEAD
 function removeImage() {
 	if (turn===1) {
 		document.getElementById("divSlotId" + switchFromP1((player2UnitArray.length))). innerHTML = '<img src="" width=9%></button>';
@@ -74,11 +93,17 @@ function removeImage() {
 	}
 }
 
+=======
+function removeImage(deadUnit) {
+	document.getElementById("testDivId" + deadUnit). innerHTML = '<img src="" width=10%></button>';
+}        
+>>>>>>> origin/master
 
 </script>
 
 	<button onClick = "createRifleman(turn)">Buy Rifleman</button>
 	<button onClick = "createTank(turn)">Buy Tank</button>
+    <button onClick = "attackUnit()">Attack Unit on Opposing Team</button>
 </body>
 
 
